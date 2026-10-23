@@ -1,26 +1,75 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-inter);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@theme {
+  /* Цвета */
+  --color-ink: #1B1530;
+  --color-ink2: #4A4560;
+  --color-cream: #FFF6E9;
+  --color-white: #FFFFFF;
+  --color-tomato: #FF5A3C;
+  --color-sun: #FFC93C;
+  --color-mint: #3DD6B5;
+  --color-violet: #7B5CFF;
+  --color-pink: #FF8FC7;
+  --color-placeholder: #8C879C;
+
+  /* Контейнер */
+  --container-site: 1200px;
+
+  /* Радиусы */
+  --radius-sm: 14px;
+  --radius-md: 20px;
+  --radius-lg: 28px;
+  --radius-xl: 40px;
+
+  /* Тень */
+  --shadow-hard: 6px 6px 0 var(--tw-shadow-color, #1B1530);
+  --shadow-hard-sm: 4px 4px 0 var(--tw-shadow-color, #1B1530);
+
+  /* Типографика: размер / межстрочный / жирность */
+  --text-h1: 84px;
+  --text-h1--line-height: 92px;
+  --text-h1--font-weight: 900;
+
+  --text-h2: 56px;
+  --text-h2--line-height: 62px;
+  --text-h2--font-weight: 900;
+
+  --text-h3: 24px;
+  --text-h3--line-height: 28px;
+  --text-h3--font-weight: 700;
+
+  --text-lead: 22px;
+  --text-lead--line-height: 33px;
+
+  --text-body: 18px;
+  --text-body--line-height: 27px;
+
+  --text-small: 15px;
+  --text-small--line-height: 22px;
+}
+
+/* Базовые стили: теги сразу выглядят по стайлгайду */
+@layer base {
+  body {
+    @apply font-sans text-body text-ink;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@utility wrapper {
+  max-width: var(--container-site);
+  margin-inline: auto;
+  padding-inline: 16px;
+}
+
+@utility section-y {
+  padding-block: 64px;
+
+  @media (width >= 768px) {
+    padding-block: 120px;
+  }
 }
