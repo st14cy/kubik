@@ -1,12 +1,16 @@
 import Image from "next/image";
 import Button from "@/components/ui/Button";
 import Typography from "@/components/ui/Typography";
+import Link from "next/link";
+import Header from "@/components/layout/Header";
+import Main from "@/components/layout/Main";
 
 export default function Home() {
   return (
-    <div>
-      <Button variant="primary">Primary</Button>
-        <Typography variant="title">Тест</Typography>
+    <div >
+      <Header/>
+        <Main/>
+
     </div>
   );
 }
