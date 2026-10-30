@@ -13,7 +13,7 @@ const playfair = localFont({
     src: "./fonts/PlayfairDisplay-Variable.woff2", // путь к вашему файлу Playfair Display
     variable: "--font-playfair",
     display: "swap",
-    weight: "400 900", // диапазон для Playfair Display
+    weight: "400 900",
 });
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
