@@ -15,7 +15,7 @@ interface LinkProps {
     className?: string;
 }
 
-const CustomLink: React.FC<LinkProps> = ({
+const AppLink: React.FC<LinkProps> = ({
                                              variant = "nav",
                                              href,
                                              children,
@@ -28,4 +28,4 @@ const CustomLink: React.FC<LinkProps> = ({
     );
 };
 
-export default CustomLink;
+export default AppLink;

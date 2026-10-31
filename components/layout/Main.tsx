@@ -1,8 +1,11 @@
 import React from 'react';
 import Typography from "@/components/ui/Typography";
-import Link from "../ui/Link";
+import Link from "../ui/AppLink";
 import Button from "../ui/Button";
+import RadioButton from "@/components/ui/RadioButton";
 import WorkItem from "@/components/ui/WorkItem";
+import HitsItem from "@/components/ui/HitsItem";
+import AppLink from "../ui/AppLink";
 
 const Main = () => {
     const workItems = [
@@ -25,8 +28,55 @@ const Main = () => {
             className:"bg-pink"
         }
     ]
+
+    const hitItems = [
+        {
+            className:"bg-mint",
+            isNew:false,
+            isHits:true,
+            title:"Кодовые имена",
+            description:"Командная игра на ассоциации: угадайте своих агентов по одному слову.",
+            countPerson:"4-8",
+            time:"20",
+            lvl:"Легко",
+            iconUrl:"/icons/codenames.svg"
+        },
+        {
+            className:"bg-sun",
+            isNew:false,
+            isHits:false,
+            title:"Каркассон",
+            description:"Строим средневековые города, дороги и монастыри из квадратных тайлов.",
+            countPerson:"2-5",
+            time:"45",
+            lvl:"Среднее",
+            iconUrl:"/icons/mountain.svg"
+        },
+        {
+            className:"bg-pink",
+            isNew:false,
+            isHits:false,
+            title:"Шерлок Хомс",
+            description:"Кооперативный детектив: расследуйте дело по уликам и газетам Лондона.",
+            countPerson:"1-8",
+            time:"90",
+            lvl:"Сложно",
+            iconUrl:"/icons/search.svg"
+        },
+        {
+            className:"bg-violet",
+            isNew:false,
+            isHits:true,
+            title:"Взрывные котята",
+            description:"Быстрая карточная игра, где главное — не вытянуть взрывного котёнка.",
+            countPerson:"2-5",
+            time:"15",
+            lvl:"Легко",
+            iconUrl:"/icons/cat.svg"
+        }
+    ]
     return (
-        <div>
+        <main>
             <section className='flex flex-col justify-center mx-5 lg:grid lg:grid-cols-2'>
                 <Typography variant='badge'>Антикафе настольных игр</Typography>
                 <Typography variant='heroTitle'>Бросай
@@ -59,7 +109,7 @@ const Main = () => {
                 </ul>
             </section>
 
-            <div className="my-[14px] w-full">
+            <div className="my-[14px] w-full overflow-x-clip">
                 <ul className={' w-[120%] -ml-[2.5%] py-[14px] flex flex-row gap-10 bg-ink -rotate-2 overflow-hidden'}>
                     <ul className="flex items-center gap-6 whitespace-nowrap">
                         <li>
@@ -106,9 +156,48 @@ const Main = () => {
                 <Typography variant="badge">Каталог</Typography>
                 <Typography variant="title">Хиты этого месяца</Typography>
                 <Typography variant="description">Самые популярные игры у наших гостей. Полный список — на полках в зале.</Typography>
+                <ul className="flex flex-row gap-2 flex-wrap">
+                    <li>
+                        <RadioButton>Все</RadioButton>
+                    </li>
+                    <li>
+                        <RadioButton>Для компании</RadioButton>
+                    </li>
+                    <li>
+                        <RadioButton>Для двоих</RadioButton>
+                    </li>
+                    <li>
+                        <RadioButton>Стратегии</RadioButton>
+                    </li>
+                    <li>
+                        <RadioButton>Детективы</RadioButton>
+                    </li>
+                </ul>
+                <ul>
+                    {hitItems.map((item, index) => (
+                        <HitsItem className={item.className}
+                                  isHit={item.isHits}
+                                  isNew={item.isNew}
+                                  title={item.title}
+                                  description={item.description}
+                                  iconUrl={item.iconUrl}
+                                  countPerson={item.countPerson}
+                                  time={item.time}
+                                  lvl={item.lvl}></HitsItem>
+                    ))}
+                </ul>
+
+                <AppLink href={""} className="bg-white" variant="button">Посмотреть еще игры</AppLink>
             </section>
 
-        </div>
+            <section className="  bg-sun">
+                <div className="flex flex-col justify-center px-5">
+                    <Typography variant="badge">Тарифы</Typography>
+                    <Typography variant="title">Платите за время,  а не за чай</Typography>
+                    <Typography variant="description">Цены указаны за одного гостя. Дети до 7 лет — бесплатно.</Typography>
+                </div>
+            </section>
+        </main>
     );
 };
 
