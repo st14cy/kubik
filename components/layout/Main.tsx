@@ -6,6 +6,7 @@ import RadioButton from "@/components/ui/RadioButton";
 import WorkItem from "@/components/ui/WorkItem";
 import HitsItem from "@/components/ui/HitsItem";
 import AppLink from "../ui/AppLink";
+import RateItem from "@/components/ui/RateItem";
 
 const Main = () => {
     const workItems = [
@@ -75,6 +76,60 @@ const Main = () => {
             iconUrl:"/icons/cat.svg"
         }
     ]
+
+    const rateItems = [
+        {
+            isBlackThemes: false,
+            isBadge: false,
+            badgeText: "",
+            title: "Почасовой",
+            description: "Чтобы заскочить на пару партий",
+            price: "250 ₽",
+            isTransitionPrice: true,
+            transitionDescription: "час",
+            descriptionPoints: [
+                "Любые игры из каталога",
+                "Чай, кофе и печеньки",
+                "Помощь ведущего с правилами",
+            ],
+            contentButton: "Выбрать",
+        },
+        {
+            isBlackThemes: true,
+            isBadge: true,
+            badgeText: "Выбор гостей",
+            title: "Весь вечер",
+            description: "С 18:00 и до закрытия",
+            price: "790 ₽",
+            isTransitionPrice: true,
+            transitionDescription: "вечер",
+            descriptionPoints: [
+                "Всё из почасового тарифа",
+                "Стол за вами весь вечер",
+                "Скидка 10% на пиццу",
+                "Участие в турнире недели",
+            ],
+            contentButton: "Выбрать",
+        },
+        {
+            isBlackThemes: false,
+            isBadge: false,
+            badgeText: "",
+            title: "Праздник",
+            description: "День рождения или тимбилдинг",
+            price: "от 9 900 ₽",
+            isTransitionPrice: false,
+            transitionDescription: "",
+            descriptionPoints: [
+                "Отдельный зал до 20 гостей",
+                "Личный ведущий на 3 часа",
+                "Сценарий и подбор игр",
+                "Можно со своим тортом",
+            ],
+            contentButton: "Обсудить",
+        },
+    ];
+
     return (
         <main>
             <section className='flex flex-col justify-center mx-5 lg:grid lg:grid-cols-2'>
@@ -187,7 +242,7 @@ const Main = () => {
                     ))}
                 </ul>
 
-                <AppLink href={""} className="bg-white" variant="button">Посмотреть еще игры</AppLink>
+                <AppLink href={""} className="bg-white" variant="button">Показать еще игры</AppLink>
             </section>
 
             <section className="  bg-sun">
@@ -196,6 +251,19 @@ const Main = () => {
                     <Typography variant="title">Платите за время,  а не за чай</Typography>
                     <Typography variant="description">Цены указаны за одного гостя. Дети до 7 лет — бесплатно.</Typography>
                 </div>
+                <ul>
+                    {rateItems.map((item,index) => (
+                        <RateItem isBlackThemes={item.isBlackThemes}
+                                  isBadge={item.isBadge}
+                                  title={item.title}
+                                  description={item.description}
+                                  price={item.price}
+                                  isTransitionPrice={item.isTransitionPrice}
+                                  transitionDescription={item.transitionDescription}
+                                  descriptionPoints={item.descriptionPoints}
+                                  contentButton={item.contentButton}></RateItem>
+                    ))}
+                </ul>
             </section>
         </main>
     );
