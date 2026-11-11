@@ -3,7 +3,7 @@ import Typography from "@/components/ui/Typography";
 import Button from "@/components/ui/Button";
 
 
-interface RateItemProps {
+export interface RateItemProps {
     isBlackThemes:boolean,
     isBadge:boolean,
     badgeText:string,
@@ -12,22 +12,21 @@ interface RateItemProps {
     price: string;
     isTransitionPrice:boolean,
     transitionDescription:string,
-    descriptionPoints:[],
+    descriptionPoints:string[],
     contentButton:string,
 }
 
-// @ts-ignore
-const RateItem = ({
-    isBlackThemes=false,
-                      isBadge=false,
-                      badgeText="Выбор гостей",
-                      title,
-                      description,
-                      price,
-                      isTransitionPrice,
-                      transitionDescription,
-                      descriptionPoints,
-                      contentButton}) => {
+const RateItem:React.FC<RateItemProps> = ({
+                                              isBlackThemes=false,
+                                              isBadge=false,
+                                              badgeText="Выбор гостей",
+                                              title,
+                                              description,
+                                              price,
+                                              isTransitionPrice,
+                                              transitionDescription,
+                                              descriptionPoints,
+                                              contentButton}) => {
     return (
             <li className={`flex flex-col overflow-hidden rounded-lg border-2 p-7  gap-6 ${isBlackThemes ? 'bg-ink' : 'bg-white' } shadow-hard-sm`}>
                 <div className={`flex flex-col gap-3 ${isBlackThemes ? 'text-white' : 'text-ink'}`}>

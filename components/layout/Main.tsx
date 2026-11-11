@@ -6,7 +6,8 @@ import RadioButton from "@/components/ui/RadioButton";
 import WorkItem from "@/components/ui/WorkItem";
 import HitsItem from "@/components/ui/HitsItem";
 import AppLink from "../ui/AppLink";
-import RateItem from "@/components/ui/RateItem";
+import RateItem, {RateItemProps} from "@/components/ui/RateItem";
+import ReviewsItem, {ReviewsItemProps} from "@/components/ui/ReviewsItem";
 
 const Main = () => {
     const workItems = [
@@ -77,7 +78,7 @@ const Main = () => {
         }
     ]
 
-    const rateItems = [
+    const rateItems: RateItemProps[] = [
         {
             isBlackThemes: false,
             isBadge: false,
@@ -127,6 +128,36 @@ const Main = () => {
                 "Можно со своим тортом",
             ],
             contentButton: "Обсудить",
+        },
+    ];
+
+    const ratingItems: ReviewsItemProps[] = [
+        {
+            rating: 5,
+            name: "Аня",
+            surname: "Морозова",
+            description:
+                "Пришли вчетвером на час, ушли в полночь. Ведущий подобрал игру, которая зашла даже моему папе, который «не любит настолки».",
+            avatarColor: "#FFCF36",
+            isMintTheme:false
+        },
+        {
+            rating: 5,
+            name: "Дмитрий",
+            surname: "Ковалёв",
+            description:
+                "Отмечали тут день рождения сына. Дети в восторге от «Взрывных котят», взрослые — от того, что не нужно ничего организовывать.",
+            avatarColor: "#FFFFFF",
+            isMintTheme:true
+        },
+        {
+            rating: 5,
+            name: "Лиза",
+            surname: "Соколова",
+            description:
+                "Лучшее место для свиданий, если вы оба не любите неловкие паузы. Рекомендую «Пэтчворк» и бесконечный облепиховый чай.",
+            avatarColor: "#FF8DD2",
+            isMintTheme:false
         },
     ];
 
@@ -255,6 +286,7 @@ const Main = () => {
                     {rateItems.map((item,index) => (
                         <RateItem isBlackThemes={item.isBlackThemes}
                                   isBadge={item.isBadge}
+                                  badgeText={item.badgeText}
                                   title={item.title}
                                   description={item.description}
                                   price={item.price}
@@ -265,6 +297,17 @@ const Main = () => {
                     ))}
                 </ul>
             </section>
+
+
+            <section className='flex flex-col justify-center mx-5 lg:grid lg:grid-cols-2'>
+                <Typography variant="badge">Отзывы</Typography>
+                <Typography variant="title">Что говорят игроки</Typography>
+                <Typography variant="description">Больше 1 500 отзывов на картах.</Typography>
+                <ul className="flex flex-col gap-4 lg:justify-between">
+                    {ratingItems.map((rate, index) => (<ReviewsItem key={index} rating={rate.rating} name={rate.name} surname={rate.surname} description={rate.description} avatarColor={rate.avatarColor} isMintTheme={rate.isMintTheme} />))}
+                </ul>
+            </section>
+
         </main>
     );
 };
