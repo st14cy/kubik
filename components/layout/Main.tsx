@@ -8,6 +8,7 @@ import HitsItem from "@/components/ui/HitsItem";
 import AppLink from "../ui/AppLink";
 import RateItem, {RateItemProps} from "@/components/ui/RateItem";
 import ReviewsItem, {ReviewsItemProps} from "@/components/ui/ReviewsItem";
+import QuestionItem, {QuestionItemProps} from "@/components/ui/QuestionItem";
 
 const Main = () => {
     const workItems = [
@@ -161,6 +162,34 @@ const Main = () => {
         },
     ];
 
+    const questionItem:QuestionItemProps[] = [
+        {
+            question: "Нужно ли знать правила заранее?",
+            answer:
+                "Нет. Ведущий подойдёт к столу, объяснит правила и сыграет с вами первый круг, пока все не разберутся.",
+        },
+        {
+            question: "Можно прийти без брони?",
+            answer:
+                "Да, если есть свободные столы. Вечером и в выходные лучше забронировать заранее, особенно если собираетесь большой компанией.",
+        },
+        {
+            question: "Можно ли принести свою еду?",
+            answer:
+                "У нас можно заказать еду и напитки. Если хотите принести что-то своё, заранее обсудите это с администратором. Для праздника можно принести свой торт.",
+        },
+        {
+            question: "Есть ли игры для детей?",
+            answer:
+                "Да! Поможем выбрать игру по возрасту и интересам ребёнка, объясним правила и подскажем, во что можно поиграть всей семьёй.",
+        },
+        {
+            question: "Как отменить бронь?",
+            answer:
+                "Позвоните или напишите нам, указав имя, дату и время бронирования. Сообщите об отмене как можно раньше, чтобы мы могли предложить стол другим гостям.",
+        },
+    ];
+
     return (
         <main>
             <section className='flex flex-col justify-center mx-5 lg:grid lg:grid-cols-2'>
@@ -298,7 +327,6 @@ const Main = () => {
                 </ul>
             </section>
 
-
             <section className='flex flex-col justify-center mx-5 lg:grid lg:grid-cols-2'>
                 <Typography variant="badge">Отзывы</Typography>
                 <Typography variant="title">Что говорят игроки</Typography>
@@ -306,6 +334,20 @@ const Main = () => {
                 <ul className="flex flex-col gap-4 lg:justify-between">
                     {ratingItems.map((rate, index) => (<ReviewsItem key={index} rating={rate.rating} name={rate.name} surname={rate.surname} description={rate.description} avatarColor={rate.avatarColor} isMintTheme={rate.isMintTheme} />))}
                 </ul>
+            </section>
+
+            <section className='flex flex-col justify-center mx-5 lg:grid lg:grid-cols-2'>
+                <Typography variant="badge">FAQ</Typography>
+                <Typography variant="title">Частые вопросы</Typography>
+
+                <ul className="flex flex-col gap-4 lg:justify-between">
+                    {questionItem.map((item, index) => (<li>
+                        <QuestionItem question={item.question} answer={item.answer} />
+                    </li>))}
+                </ul>
+                <p className="text-[16px] leading-[24px] lg:text-[18px] lg:leading-[27px] text-ink2">
+                    Не нашли ответ? Напишите нам в Telegram — отвечаем за 10 минут.
+                </p>
             </section>
 
         </main>
