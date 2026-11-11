@@ -9,6 +9,8 @@ import AppLink from "../ui/AppLink";
 import RateItem, {RateItemProps} from "@/components/ui/RateItem";
 import ReviewsItem, {ReviewsItemProps} from "@/components/ui/ReviewsItem";
 import QuestionItem, {QuestionItemProps} from "@/components/ui/QuestionItem";
+import InputControl from "@/components/ui/InputControl";
+import {AwaiterOnce} from "next/dist/server/after/awaiter";
 
 const Main = () => {
     const workItems = [
@@ -262,7 +264,7 @@ const Main = () => {
                 <Typography variant="description">Никаких членских карт и обязательных заказов. Пришли, сыграли, заплатили за минуты — всё.</Typography>
                 <ul className="flex flex-col gap-4 lg:justify-between">
                     {workItems.map((item, index) => (
-                        <WorkItem num={item.num} title={item.title} description={item.description} className={item.className}/>
+                        <WorkItem num={item.num} key={index} title={item.title} description={item.description} className={item.className}/>
                     ))}
                 </ul>
             </section>
@@ -291,6 +293,7 @@ const Main = () => {
                 <ul>
                     {hitItems.map((item, index) => (
                         <HitsItem className={item.className}
+                                  key={index}
                                   isHit={item.isHits}
                                   isNew={item.isNew}
                                   title={item.title}
@@ -314,6 +317,7 @@ const Main = () => {
                 <ul>
                     {rateItems.map((item,index) => (
                         <RateItem isBlackThemes={item.isBlackThemes}
+                                  key={index}
                                   isBadge={item.isBadge}
                                   badgeText={item.badgeText}
                                   title={item.title}
@@ -341,13 +345,46 @@ const Main = () => {
                 <Typography variant="title">Частые вопросы</Typography>
 
                 <ul className="flex flex-col gap-4 lg:justify-between">
-                    {questionItem.map((item, index) => (<li>
+                    {questionItem.map((item, index) => (
+                        <li key={index} >
                         <QuestionItem question={item.question} answer={item.answer} />
                     </li>))}
                 </ul>
                 <p className="text-[16px] leading-[24px] lg:text-[18px] lg:leading-[27px] text-ink2">
                     Не нашли ответ? Напишите нам в Telegram — отвечаем за 10 минут.
                 </p>
+            </section>
+
+            <section className={`flex flex-col overflow-hidden rounded-lg border-2 pt-7  px-5 pb-5 bg-tomato shadow-hard-sm`}>
+                <div>
+                    <Typography variant="badge">Бронь</Typography>
+                    <h2 className="text-[32px] leading-[36px] lg:text-[56px] lg:leading-[62px] font-bold text-white">
+                        Займите стол заранее
+                    </h2>
+                    <p className={`text-[16px] leading-[24px] lg:text-[18px] lg:leading-[27px] text-white`}>
+                        По пятницам и выходным свободных столов почти не бывает. Оставьте заявку — перезвоним за 15 минут.
+                    </p>
+                </div>
+                <form>
+                    <div className="flex flex-col gap-4 rounded-lg border-2 border-ink bg-white p-5 text-ink ">
+                        <InputControl
+                            type="text"
+                            placeholder="Имя"
+                            id="name"
+                            name="name"
+                            value="Алексей"
+                        />
+
+                        <InputControl
+                            type="phone"
+                            placeholder="Телефон"
+                            id="phone"
+                            name="phone"
+                            value="Алексей"
+                        />
+                    </div>
+                </form>
+
             </section>
 
         </main>
