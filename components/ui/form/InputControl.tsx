@@ -15,10 +15,8 @@ const InputControl:React.FC<InputControlProps> = ({
     name,
     id,
     value,
-    onChange,
-                                                  }) => {
+    onChange,}) => {
     return (
-
         <div>
             <label htmlFor={id} className="text-[14px] lg:text-[16px] font-bold text-lnk2">
                 {placeholder}
@@ -29,7 +27,8 @@ const InputControl:React.FC<InputControlProps> = ({
                 id={id}
                 value={value}
                 onChange={onChange}
-                className={`w-full rounded-[12px] border-2 border-ink bg-cream px-4 py-3 lg:px-5 lg:py-4 text-[14px] lg:text-[16px] font-bold text-lnk2 placeholder:text-lnk2 focus:border-violet`}
+                className={`w-full rounded-[12px] border-2 border-ink bg-cream px-4 py-3 lg:px-5 lg:py-4 text-[14px] lg:text-[16px] font-bold text-lnk2 placeholder:text-lnk2  
+                focus:outline-violet-600`}
                 placeholder={placeholder}
             />
         </div>

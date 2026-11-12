@@ -2,15 +2,19 @@ import React from 'react';
 import Typography from "@/components/ui/Typography";
 import Link from "../ui/AppLink";
 import Button from "../ui/Button";
-import RadioButton from "@/components/ui/RadioButton";
-import WorkItem from "@/components/ui/WorkItem";
-import HitsItem from "@/components/ui/HitsItem";
+import RadioButton from "@/components/ui/form/RadioButton";
+import WorkItem from "@/components/sections/how-it-works/WorkItem";
+import HitsItem from "@/components/sections/catalog/HitsItem";
 import AppLink from "../ui/AppLink";
-import RateItem, {RateItemProps} from "@/components/ui/RateItem";
-import ReviewsItem, {ReviewsItemProps} from "@/components/ui/ReviewsItem";
-import QuestionItem, {QuestionItemProps} from "@/components/ui/QuestionItem";
-import InputControl from "@/components/ui/InputControl";
+import RateItem, {RateItemProps} from "@/components/sections/rates/RateItem";
+import ReviewsItem, {ReviewsItemProps} from "@/components/sections/reviews/ReviewsItem";
+import QuestionItem, {QuestionItemProps} from "@/components/sections/faq/QuestionItem";
+import InputControl from "@/components/ui/form/InputControl";
 import {AwaiterOnce} from "next/dist/server/after/awaiter";
+import SelectControl from "@/components/ui/form/SelectControl";
+import Counter from "@/components/ui/form/Counter";
+import TextareaControl from "@/components/ui/form/TextareaControl";
+import CheckboxControl from "@/components/ui/form/CheckboxControl";
 
 const Main = () => {
     const workItems = [
@@ -205,7 +209,7 @@ const Main = () => {
                 </Typography>
                 <Typography variant='description'> 123 Больше 200 настолок, ведущие, которые объяснят правила за 5 минут, и бесконечный чай с печеньками. Платите только за время.</Typography>
                 <div>
-                    <Link variant="button" href="/" className="bg-tomato text-white">123</Link>
+                    <Link variant="button" href="/" className="bg-tomato text-white">Забронировать стол →</Link>
                     <Button variant="secondary">Смотреть игры</Button>
                 </div>
                 <ul className="flex flex-row justify-between text-ink">
@@ -364,6 +368,37 @@ const Main = () => {
                     <p className={`text-[16px] leading-[24px] lg:text-[18px] lg:leading-[27px] text-white`}>
                         По пятницам и выходным свободных столов почти не бывает. Оставьте заявку — перезвоним за 15 минут.
                     </p>
+                    <address className="flex flex-col gap-5 not-italic text-white">
+                        <div>
+                            <p className="text-[20px] font-bold">
+                                ул. Игровая, 12
+                            </p>
+                            <p className="text-[16px] leading-[24px]">
+                                3 минуты от метро «Пушкинская»
+                            </p>
+                        </div>
+
+                        <div>
+                            <p className="text-[20px] font-bold">
+                                Каждый день 12:00–00:00
+                            </p>
+                            <p className="text-[16px] leading-[24px]">
+                                В пт и сб до 02:00
+                            </p>
+                        </div>
+
+                        <div className="flex flex-col items-start">
+                            <a href="tel:+79991234567"
+                                className="text-[20px] font-bold hover:underline">
+                                +7 (999) 123-45-67
+                            </a>
+
+                            <a href="mailto:hello@kubik.cafe"
+                                className="text-[16px] leading-[24px] hover:underline">
+                                hello@kubik.cafe
+                            </a>
+                        </div>
+                    </address>
                 </div>
                 <form>
                     <div className="flex flex-col gap-4 rounded-lg border-2 border-ink bg-white p-5 text-ink ">
@@ -372,21 +407,57 @@ const Main = () => {
                             placeholder="Имя"
                             id="name"
                             name="name"
-                            value="Алексей"
-                        />
-
+                            value="Алексей"/>
                         <InputControl
                             type="phone"
                             placeholder="Телефон"
                             id="phone"
                             name="phone"
-                            value="Алексей"
+                            value="+7 (___) ___-__-__"/>
+                        <div className=" grid  grid-cols-2  gap-3 ">
+                            <SelectControl
+                                label="Дата"
+                                id="date"
+                                name="date"
+                                defaultValue="Пт,24 окт"
+                                options={[
+                                    "Пт, 24 окт",
+                                    "Сб, 25 окт",
+                                    "Вс, 26 окт",
+                                    "Пн, 27 окт",
+                                    "Вт, 28 окт",
+                                    "Ср, 29 окт",
+                                    "Чт, 30 окт",
+                                ]}
+                            />
+                            <SelectControl
+                                label="Время"
+                                id="time"
+                                name="time"
+                                defaultValue="19:00"
+                                options={["18:00", "18:30", "19:00", "19:30", "20:00"]}
+                            />
+                        </div>
+                        <Counter label="Сколько вас будет?"></Counter>
+                        <TextareaControl
+                            label="Комментарий"
+                            id="comment"
+                            name="comment"
+                            rows={3}
+                            placeholder="Например: хотим что-нибудь на детективную тему"
                         />
+
+                        <CheckboxControl
+                            id="consent"
+                            name="consent"
+                            label="Согласен на обработку персональных данных"
+                            required
+                        />
+
+                        <Button>Отправить заявку</Button>
                     </div>
                 </form>
-
             </section>
-
         </main>
     );
 };
