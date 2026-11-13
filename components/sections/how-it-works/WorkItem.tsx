@@ -14,12 +14,12 @@ const WorkItem: React.FC<WorkItemProps> = ({
     className,
                   }) => {
     return (
-        <li className="flex flex-col p-6
-        bg-white
-        gap-4
-        rounded-md
-        border-2 border-ink
-        shadow-hard-sm">
+        <li className="flex flex-col p-5
+                bg-white
+                gap-4
+                rounded-md
+                border-2 border-ink
+                shadow-hard-sm lg:p-9">
             <div className={` w-12 h-[48px] flex border-2  justify-start rounded-[12px] border-ink  ${className}  rounded-3`}>
                 <span className=" block my-auto mx-auto text-[22px] leading-5.5 lg:text-[28px] lg:leading-7 font-bold">
                    {num}
@@ -30,7 +30,7 @@ const WorkItem: React.FC<WorkItemProps> = ({
                {title}
            </span>
 
-            <span>
+            <span className={`text-ink2 text-[15px] leading-[22px] lg:text-[16px] lg:leading-[24px]`}>
                 {description}
             </span>
 

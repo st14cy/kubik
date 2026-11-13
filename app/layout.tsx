@@ -3,10 +3,10 @@ import localFont from "next/font/local";
 import "./globals.css";
 
 const inter = localFont({
-    src: "./fonts/Inter-Variable.woff2", // путь к вашему файлу Inter
+    src: "./fonts/Inter-Variable.woff2",
     variable: "--font-inter",
     display: "swap",
-    weight: "100 700", // обязательно укажите диапазон для variable-шрифта
+    weight: "100 900",
 });
 
 const playfair = localFont({
@@ -20,7 +20,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     return (
         <html lang="ru" className={`${inter.variable} ${playfair.variable}`}>
             <body className="font-sans bg-cream antialiased text-ink">
-                <div className="max-w-7xl mx-auto">
+                <div>
                     {children}
                 </div>
             </body>

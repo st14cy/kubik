@@ -5,20 +5,22 @@ type Variant = "heroTitle" | "title" | "badge"| "description";
 
 const variants: Record<Variant, string>=
     {
-        heroTitle:"text-[44px] leading-[52px] lg:text-[84px] lg:leading-[96px] font-bold",
-        title:"text-[32px] leading-[36px] lg:text-[56px] lg:leading-[62px] font-bold",
-        description:"text-[18px] leading-[26px] lg:text-[22px] lg:leading-[32px] text-lnk2",
-        badge:" bg-white border-2 border-ink rounded-lg  px-3 text-[12px] lg:px-4 lg:text-[14px] inline-flex self-start  color-ink font-bold uppercase"
+        heroTitle:"text-[44px] leading-[52px] lg:text-[84px] lg:leading-[96px] font-extrabold",
+        title:"text-[32px] leading-[36px] lg:text-[56px] lg:leading-[62px] font-extrabold",
+        description:"text-[16px] leading-[26px] lg:text-[22px] lg:leading-[32px] text-lnk2",
+        badge:"  border-2 border-ink rounded-lg  px-3 text-[12px] lg:px-4 lg:text-[14px] inline-flex self-start  color-ink font-bold uppercase bg-white"
     };
 
 interface TypographyProps {
     variant: Variant;
+    className?: string;
     children:React.ReactNode;
 }
 
 const Typography:React.FC<TypographyProps> = ({
     variant="title",
-    children}) => {
+    children,
+                                              className}) => {
 
     let Tag: React.ElementType = "p";
     if (variant === "heroTitle") {
@@ -33,7 +35,7 @@ const Typography:React.FC<TypographyProps> = ({
     }
 
     return (
-        <Tag className={`${variants[variant]}`}>
+        <Tag className={`${variants[variant]} ${className}`}>
             {children}
         </Tag>
     );

@@ -1,4 +1,5 @@
 import React from 'react';
+import Typography from "@/components/ui/Typography";
 
 interface HitsItemProps {
     className:string,
@@ -26,20 +27,18 @@ const HitsItem:React.FC<HitsItemProps> = ({className,
         <li className="flex flex-col overflow-hidden rounded-lg border-2 border-ink bg-white shadow-hard-sm">
             <div className={`relative flex h-[200px] items-center justify-center border-b-2 border-ink ${className}`}>
                 {(isHit || isNew) && (
-                    <span className="absolute left-5 top-5 rounded-full border-2 border-ink bg-white px-3 py-1 text-[12px] font-bold">
-                        {isHit ? "ХИТ" : "НОВИНКА"}
-                 </span>
+                    <Typography className=" absolute left-5 top-5 mb-5" variant="badge">  {isHit ? "ХИТ" : "НОВИНКА"}</Typography>
                 )}
                 <img
                     src={iconUrl}
                     alt=""
                     className="size-32 object-contain"/>
             </div>
-                <div className="flex flex-col p-6 gap-4 ">
-                    <span className="text-[18px] leading-[24px] lg:text-[20px] lg:leading-[24px] font-bold">
+                <div className="flex flex-col p-6 ">
+                    <span className="text-[18px] leading-[24px] mb-2 lg:text-[20px] lg:leading-[24px] font-bold ">
                         {title}
                     </span>
-                    <span className="text-[15px] leading-[22px]">
+                    <span className="text-[15px] leading-[22px] mb-5 text-ink2">
                         {description}
                     </span>
                     <ul className="flex flex-row flex-wrap gap-2">
