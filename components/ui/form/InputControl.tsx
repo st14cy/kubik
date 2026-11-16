@@ -7,18 +7,20 @@ interface InputControlProps {
     id:string,
     value:string,
     onChange?: React.ChangeEventHandler<HTMLInputElement>;
+    className?:string,
 }
 
 const InputControl:React.FC<InputControlProps> = ({
     type,
+
     placeholder,
     name,
     id,
     value,
-    onChange,}) => {
+    onChange, className,}) => {
     return (
-        <div>
-            <label htmlFor={id} className="text-[14px] lg:text-[16px] font-bold text-lnk2">
+        <div className={`${className}`}>
+            <label htmlFor={id} className="text-[14px]  font-bold text-lnk2">
                 {placeholder}
             </label>
             <input

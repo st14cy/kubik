@@ -298,14 +298,15 @@ const Main = () => {
 
             <section className="bg-sun flex flex-col pt-16 border-y-2 lg:py-30">
                 <div className={    `flex flex-col justify-center mx-auto w-full max-w-[1240px] px-5 `}>
-                    <div className="flex flex-col justify-center mb-8">
+                    <div className="flex flex-col justify-center">
                         <Typography variant="badge" className="mb-4">Тарифы</Typography>
-                        <div className="flex flex-col gap-4 mb-[34px] lg:flex-row lg:justify-between lg:items-end">
+                        <div className="flex flex-col gap-4 mb-[34px] lg:mb-[56px] lg:flex-row lg:justify-between lg:items-end">
                             <Typography variant="title" className="max-w-[510px]">Платите за время,  а не за чай</Typography>
                             <Typography variant="description" className="text-ink2 max-w-[420px]">Цены указаны за одного гостя. Дети до 7 лет — бесплатно.</Typography>
                         </div>
                     </div>
                     <ul className="
+                        mb-16
                         flex flex-col gap-4
                         lg:flex-row lg:items-stretch lg:gap-[26px]
                         lg:[&>*]:flex-1
@@ -330,95 +331,145 @@ const Main = () => {
 
             </section>
 
-            <section className='flex flex-col justify-center mx-auto w-full max-w-[1240px] px-5 py-16 lg:py-30'>
+            <section className='flex flex-col justify-center mx-auto w-full max-w-[1240px] px-5 py-16 lg:pb-0 lg:mb-30'>
                 <Typography variant="badge" className="mb-4">Отзывы</Typography>
-                <div className="flex flex-col gap-4 mb-[32px] lg:flex-row lg:justify-between lg:items-end">
+                <div className="flex flex-col gap-4 mb-[32px] lg:mb-[56px] lg:flex-row lg:justify-between lg:items-end">
                     <Typography variant="title">Что говорят игроки</Typography>
-                    <Typography variant="description" className="text-ink2">Больше 1 500 отзывов на картах.</Typography>
+                    <Typography variant="description" className="text-ink2 max-w-[420px]">Больше 1 500 отзывов на картах. Вот несколько любимых.</Typography>
                 </div>
-
-                <ul className="flex flex-col gap-4 lg:justify-between ">
+                <ul className="flex flex-col gap-4 lg:justify-between  lg:flex-row lg:gap-[24px]
+                lg:[&>*:nth-child(2)]:rotate-2">
                     {ratingItems.map((rate, index) => (<ReviewsItem key={index} rating={rate.rating} name={rate.name} surname={rate.surname} description={rate.description} avatarColor={rate.avatarColor} isMintTheme={rate.isMintTheme} />))}
                 </ul>
             </section>
 
-            <section className='flex flex-col justify-center mx-auto w-full max-w-[1240px] px-5 pb-16 lg:py-30'>
-                <Typography variant="badge" className="mb-4">FAQ</Typography>
-                <Typography variant="title" className="mb-8" >Частые вопросы</Typography>
+            <section className="
+                    mx-auto flex w-full max-w-[1240px] flex-col px-5 mb-16
+                    lg:mb-30 lg:grid
+                    lg:grid-cols-[minmax(0,2fr)_minmax(0,3fr)]
+                    lg:grid-rows-[auto_auto_auto_1fr]
+                    lg:gap-x-16">
+                <Typography
+                    variant="badge"
+                    className="mb-4 lg:col-start-1 lg:row-start-1 lg:justify-self-start"
+                >
+                    FAQ
+                </Typography>
 
-                <ul className="flex flex-col gap-4 lg:justify-between mb-8">
+                <Typography
+                    variant="title"
+                    className="mb-8 lg:col-start-1 lg:row-start-2"
+                >
+                    Частые вопросы
+                </Typography>
+
+                <ul className=" mb-8 flex min-w-0 flex-col gap-4
+                                lg:mb-0 lg:col-start-2 lg:row-start-1 lg:row-span-4">
                     {questionItem.map((item, index) => (
-                        <li key={index} >
-                        <QuestionItem question={item.question} answer={item.answer} />
-                    </li>))}
+                        <li key={index}>
+                            <QuestionItem
+                                question={item.question}
+                                answer={item.answer}
+                            />
+                        </li>
+                    ))}
                 </ul>
-                <p className="text-[16px] leading-[24px] lg:text-[18px] lg:leading-[27px] text-ink2">
+
+                <p className="text-[16px] leading-[24px] text-ink2
+                             lg:text-[18px] lg:leading-[27px]
+                             lg:col-start-1 lg:row-start-3">
                     Не нашли ответ? Напишите нам в Telegram — отвечаем за 10 минут.
                 </p>
             </section>
 
-            <section className={`flex flex-col overflow-hidden   px-5 pb-5 `}>
-                <div className={`border-2 pt-7 rounded-lg bg-tomato shadow-hard-sm`}>
-                    <div className={`flex flex-col px-5 px-7`}>
+            <section className={`flex flex-col justify-center mx-auto w-full max-w-[1240px] px-5 `}>
+                <div className={`   mb-16 flex flex-col gap-5
+    rounded-[28px] border-2 border-ink
+    bg-tomato px-5 py-7 shadow-hard-sm
+    lg:mb-30 lg:grid lg:items-start
+    lg:grid-cols-[minmax(0,440fr)_minmax(0,564fr)]
+    lg:gap-16 lg:rounded-[40px] lg:p-16`}>
+                    <div className={`flex flex-col max-w-[440px]`}>
                         <Typography variant="badge" className={`mb-5`}>Бронь</Typography>
-                        <h2 className="text-[32px] leading-[36px] lg:text-[56px] lg:leading-[62px] font-bold text-white">
-                            Займите стол заранее
-                        </h2>
-                        <p className={`text-[16px] leading-[24px] lg:text-[18px] lg:leading-[27px] text-white`}>
-                            По пятницам и выходным свободных столов почти не бывает. Оставьте заявку — перезвоним за 15 минут.
-                        </p>
-                        <address className="flex flex-col gap-5 not-italic text-white">
-                            <div>
-                                <p className="text-[20px] font-bold">
-                                    ул. Игровая, 12
-                                </p>
-                                <p className="text-[16px] leading-[24px]">
-                                    3 минуты от метро «Пушкинская»
-                                </p>
-                            </div>
+                        <div className={`flex flex-col gap-5`}>
+                            <h2 className="text-[32px] leading-[36px] lg:text-[52px] lg:leading-[62px] font-bold text-white">
+                                Займите <br/> стол заранее
+                            </h2>
+                            <p className={`text-[16px] leading-[24px] lg:text-[18px] lg:leading-[27px] text-white`}>
+                                По пятницам и выходным свободных столов почти не бывает. Оставьте заявку — перезвоним за 15 минут.
+                            </p>
+                            <address className="flex flex-col gap-5 lg:gap-4.5 not-italic text-white">
+                                <div>
+                                    <p className="text-[15px] font-bold lg:text-[16px]">
+                                        ул. Игровая, 12
+                                    </p>
+                                    <p className="text-[13px] leading-[18px] lg:text-[16px]  lg:leading-[24px]">
+                                        3 минуты от метро «Пушкинская»
+                                    </p>
+                                </div>
 
-                            <div>
-                                <p className="text-[20px] font-bold">
-                                    Каждый день 12:00–00:00
-                                </p>
-                                <p className="text-[16px] leading-[24px]">
-                                    В пт и сб до 02:00
-                                </p>
-                            </div>
+                                <div>
+                                    <p className="text-[15px] font-bold lg:text-[16px]">
+                                        Каждый день 12:00–00:00
+                                    </p>
+                                    <p className="text-[13px] leading-[18px]  lg:text-[16px]  lg:leading-[24px]">
+                                        В пт и сб до 02:00
+                                    </p>
+                                </div>
 
-                            <div className="flex flex-col items-start">
-                                <a href="tel:+79991234567"
-                                   className="text-[20px] font-bold hover:underline">
-                                    +7 (999) 123-45-67
-                                </a>
+                                <div className="flex flex-col items-start mb-5 lg:text-[16px]">
+                                    <a href="tel:+79991234567"
+                                       className="text-[15px] font-bold hover:underline">
+                                        +7 (999) 123-45-67
+                                    </a>
 
-                                <a href="mailto:hello@kubik.cafe"
-                                   className="text-[16px] leading-[24px] hover:underline">
-                                    hello@kubik.cafe
-                                </a>
-                            </div>
-                        </address>
+                                    <a href="mailto:hello@kubik.cafe"
+                                       className="text-[13px] leading-[18px] hover:underline  lg:text-[16px]  lg:leading-[24px]">
+                                        hello@kubik.cafe
+                                    </a>
+                                </div>
+                            </address>
+                        </div>
+
                     </div>
-                    <form>
-                        <div className="flex flex-col gap-4 rounded-lg border-2 border-ink bg-white p-5 text-ink ">
-                            <InputControl
-                                type="text"
-                                placeholder="Имя"
-                                id="name"
-                                name="name"
-                                value="Алексей"/>
-                            <InputControl
-                                type="phone"
-                                placeholder="Телефон"
-                                id="phone"
-                                name="phone"
-                                value="+7 (___) ___-__-__"/>
-                            <div className=" grid  grid-cols-2  gap-3 ">
+                    <form className="min-w-0" action="" method="post">
+                        <div className="
+        flex flex-col gap-4
+        rounded-[20px] border-2 border-ink
+        bg-white p-5 text-ink
+        lg:gap-5 lg:rounded-[28px] lg:p-10
+    ">
+                            {/* На мобильном — столбик, на компьютере — два поля рядом */}
+                            <div className="
+            grid grid-cols-1 gap-4
+            lg:grid-cols-2
+            [&>*]:min-w-0 [&>*]:w-full
+        ">
+                                <InputControl
+                                    type="text"
+                                    placeholder="Имя"
+                                    id="name"
+                                    name="name"
+                                />
+
+                                <InputControl
+                                    type="tel"
+                                    placeholder="Телефон"
+                                    id="phone"
+                                    name="phone"
+                                />
+                            </div>
+
+                            {/* Дата и время всегда рядом */}
+                            <div className="
+            grid grid-cols-2 gap-3 lg:gap-4
+            [&>*]:min-w-0 [&>*]:w-full
+        ">
                                 <SelectControl
                                     label="Дата"
                                     id="date"
                                     name="date"
-                                    defaultValue="Пт,24 окт"
+                                    defaultValue="Пт, 24 окт"
                                     options={[
                                         "Пт, 24 окт",
                                         "Сб, 25 окт",
@@ -429,22 +480,35 @@ const Main = () => {
                                         "Чт, 30 окт",
                                     ]}
                                 />
+
                                 <SelectControl
                                     label="Время"
                                     id="time"
                                     name="time"
                                     defaultValue="19:00"
-                                    options={["18:00", "18:30", "19:00", "19:30", "20:00"]}
+                                    options={[
+                                        "18:00",
+                                        "18:30",
+                                        "19:00",
+                                        "19:30",
+                                        "20:00",
+                                    ]}
                                 />
                             </div>
-                            <Counter label="Сколько вас будет?"></Counter>
-                            <TextareaControl
-                                label="Комментарий"
-                                id="comment"
-                                name="comment"
-                                rows={3}
-                                placeholder="Например: хотим что-нибудь на детективную тему"
-                            />
+
+                            <div className="min-w-0 [&>*]:w-full">
+                                <Counter label="Сколько вас будет?" />
+                            </div>
+
+                            <div className="min-w-0 [&>*]:w-full">
+                                <TextareaControl
+                                    label="Комментарий"
+                                    id="comment"
+                                    name="comment"
+                                    rows={3}
+                                    placeholder="Например: хотим что-нибудь на детективную тему"
+                                />
+                            </div>
 
                             <CheckboxControl
                                 id="consent"
@@ -453,7 +517,9 @@ const Main = () => {
                                 required
                             />
 
-                            <Button>Отправить заявку</Button>
+                            <Button className="w-full bg-tomato text-white">
+                                Отправить заявку
+                            </Button>
                         </div>
                     </form>
                 </div>

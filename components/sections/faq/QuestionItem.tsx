@@ -24,7 +24,7 @@ const QuestionItem:React.FC<QuestionItemProps> = ({
                     <span className="hidden group-open:inline font-bold">−</span>
                  </span>
             </summary>
-            <p className="mt-3.5 text-[15px] leading-[22px] lg:text-[16px] lg:leading-[24px]">
+            <p className="mt-3.5 text-[15px] leading-[22px] lg:text-[16px] lg:leading-[24px] opacity-90">
                 {answer}
             </p>
         </details>

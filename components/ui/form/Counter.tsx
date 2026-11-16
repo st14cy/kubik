@@ -4,9 +4,10 @@ import React, { useId, useState } from "react";
 
 interface CounterProps {
     label: string;
+    className?: string;
 }
 
-const Counter: React.FC<CounterProps> = ({ label }) => {
+const Counter: React.FC<CounterProps> = ({ label,className }) => {
     const [count, setCount] = useState(4);
     const labelId = useId();
 
@@ -21,7 +22,7 @@ const Counter: React.FC<CounterProps> = ({ label }) => {
         "flex w-16 shrink-0 items-center justify-center text-[28px] font-bold transition-colors hover:bg-ink/5 disabled:cursor-not-allowed disabled:opacity-40 lg:w-20";
 
     return (
-        <div className="flex min-w-0 flex-col gap-2 text-ink">
+        <div className={`flex min-w-0 flex-col gap-2 text-ink ${className}`}>
       <span
           id={labelId}
           className="text-[14px] font-bold lg:text-[16px]"
@@ -32,7 +33,7 @@ const Counter: React.FC<CounterProps> = ({ label }) => {
             <div
                 role="group"
                 aria-labelledby={labelId}
-                className="flex h-16 w-full overflow-hidden rounded-[20px] border-2 border-ink bg-cream lg:h-20"
+                className="flex h-16 w-full overflow-hidden rounded-[14px] border-2 border-ink bg-cream"
             >
                 <button
                     type="button"
@@ -46,7 +47,7 @@ const Counter: React.FC<CounterProps> = ({ label }) => {
 
                 <output
                     aria-live="polite"
-                    className="flex min-w-0 flex-1 items-center justify-center whitespace-nowrap px-2 text-[18px] font-bold lg:text-[24px]"
+                    className="flex min-w-0 flex-1 items-center justify-center whitespace-nowrap px-2 text-[18px] font-bold lg:text-[18px]"
                 >
                     {count} {peopleLabel}
                 </output>

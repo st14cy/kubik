@@ -7,6 +7,7 @@ interface SelectControlProps {
     id:string,
     name:string,
     defaultValue?:string,
+    className?:string,
 
 }
 
@@ -16,10 +17,11 @@ const SelectControl:React.FC<SelectControlProps> = ({
     label,
     id,
     name,
-    defaultValue}) => {
+    defaultValue,
+                                                    className}) => {
     return (
-        <div>
-            <label htmlFor={id} className="text-[14px] lg:text-[16px] font-bold text-lnk2">
+        <div className={`${className}`}>
+            <label htmlFor={id} className="text-[14px]  font-bold text-lnk2">
                 {label}
             </label>
             <div className="relative flex gap-2">

@@ -5,6 +5,7 @@ interface CheckboxControlProps {
     name: string;
     label: string;
     required?: boolean;
+    className?:string
 }
 
 const CheckboxControl: React.FC<CheckboxControlProps> = ({
@@ -12,12 +13,12 @@ const CheckboxControl: React.FC<CheckboxControlProps> = ({
                                                              name,
                                                              label,
                                                              required = false,
+   className
                                                          }) => {
     return (
         <label
             htmlFor={id}
-            className="flex cursor-pointer items-start gap-3 text-ink"
-        >
+            className={`flex cursor-pointer items-start gap-3 text-ink ${className}`}>
             <input
                 id={id}
                 name={name}

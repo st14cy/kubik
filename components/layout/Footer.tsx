@@ -19,8 +19,8 @@ const Footer = () => {
         },
     ]
     return (
-        <div className="bg-ink">
-            <div>
+        <div className="bg-ink pt-12 pb-10 px-5 gap-8 lg:pt-[20px] lg:pb-10 lg:px-10">
+            <div className="flex flex-col gap-3 mb-8 lg:flex-row lg:justify-between ">
                 <Link
                     href="/"
                     aria-label="Кубик — на главную"
@@ -37,18 +37,18 @@ const Footer = () => {
                  </span>
                 </Link>
 
-                <p className={`text-[15px] leading-[24px] lg:text-[18px] lg:leading-[27px] text-white`}>
+                <p className={`text-[15px] leading-[24px] lg:text-[18px] lg:leading-[27px] text-white opacity-70`}>
                     Антикафе настольных игр. Собираем компании за одним столом с 2019 года.
                 </p>
             </div>
-          <section>
+            <section className="mb-8">
               <nav aria-label="Навигация в подвале" className="grid grid-cols-2 justify-between ">
                 <div>
                     <h3 className='text-[15px]  lg:text-[18px] lg:leading-[27px] text-sun'>
                         Меню
                     </h3>
                     <ul>
-                        {menuItems.map((item) => (<li key={item}><Link className="text-[15px] text-cream  lg:text-[18px] lg:leading-[27px] " href="/">{item}</Link></li>))}
+                        {menuItems.map((item) => (<li key={item}><Link className="text-[15px] text-cream  lg:text-[18px] lg:leading-[27px]" href="/">{item}</Link></li>))}
                     </ul>
                 </div>
 
@@ -58,7 +58,7 @@ const Footer = () => {
                           Гостям
                       </h3>
                       <ul>
-                          {guestItems.map((item) => (<li key={item}><Link className="text-[15px] text-cream  lg:text-[18px] lg:leading-[27px] " href="/">{item}</Link></li>))}
+                          {guestItems.map((item) => (<li key={item}><Link className="text-[15px] text-cream  lg:text-[18px] lg:leading-[27px]  " href="/">{item}</Link></li>))}
                       </ul>
                   </div>
 
@@ -67,7 +67,7 @@ const Footer = () => {
             <section>
                 <ul className='flex flex-row gap-3'>
                     {socialItems.map((item) => (
-                        <li key={item.name} className='h-[44px]  w-[44px] flex items-center justify-center  [&:not(:last-child)]:mr-[10px] bg-cream rounded-[12px]'>
+                        <li key={item.name} className='h-[44px]  w-[44px] flex items-center justify-center  [&:not(:last-child)]:mr-[10px] bg-cream rounded-[12px] font-extrabold'>
                             <a href={item.url} target="_blank" rel="noopener noreferrer" className="text-[13px]  text-ink   lg:text-[18px] lg:leading-[27px]  ">
                                 {item.name}
                             </a>
@@ -75,7 +75,6 @@ const Footer = () => {
                     ))}
                 </ul>
             </section>
-
             <div className="mt-8 border-t border-white/20 pt-6">
                 <p className="text-[14px] text-white/60">
                     © 2026 Кубик. Все права защищены.
@@ -88,7 +87,6 @@ const Footer = () => {
                     Политика конфиденциальности
                 </a>
             </div>
-
             <img
                 src="/images/kubik-wordmark.svg"
                 alt=""

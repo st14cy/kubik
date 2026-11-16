@@ -7,7 +7,8 @@ interface TextareaControlProps {
     id:string,
     rows?:number,
     defaultValue?:string,
-    onChange?: React.ChangeEventHandler<HTMLTextAreaElement>;
+    onChange?: React.ChangeEventHandler<HTMLTextAreaElement>,
+    className?:string;
 }
 
 const TextareaControl:React.FC<TextareaControlProps> = ({
@@ -17,9 +18,10 @@ const TextareaControl:React.FC<TextareaControlProps> = ({
     id,
     rows,
     defaultValue,
-    onChange}) => {
+    onChange,
+    className}) => {
     return (
-        <div className="flex flex-col gap-2">
+        <div className={`flex flex-col gap-2 ${className}`}>
             <label
                 htmlFor={id}
                 className="text-[14px] font-bold text-ink lg:text-[16px]"
