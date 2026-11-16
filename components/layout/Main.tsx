@@ -253,7 +253,7 @@ const Main = () => {
                     </ul>
                 </div>
             </div>
-            <section className='flex flex-col justify-center mx-auto w-full max-w-[1240px] px-5 mb-30'>
+            <section className='flex flex-col justify-center mx-auto w-full max-w-[1240px] px-5 mb-16 lg:mb-30'>
                 <Typography className="mb-5" variant="badge">Как это работает</Typography>
                 <div className='flex flex-col gap-4 mb-[34px] lg:flex-row lg:justify-between lg:items-end'>
                     <Typography  className="lg:max-w-[465px]" variant="title">Три шага до веселого вечера</Typography>
@@ -267,7 +267,7 @@ const Main = () => {
                 </ul>
             </section>
             <section className='flex flex-col justify-center mx-auto w-full max-w-[1240px] px-5 '>
-                <Typography variant="badge" >Каталог</Typography>
+                <Typography variant="badge" className={`mb-4`}>Каталог</Typography>
                 <div className='flex flex-col gap-4 mb-[34px] lg:flex-row lg:justify-between lg:items-end'>
                     <Typography variant="title">Хиты этого месяца</Typography>
                     <Typography className='text-ink2 lg:max-w-[420px]' variant="description">Самые популярные игры у наших гостей. Полный список — больше 200 коробок — на полках в зале.</Typography>
